@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h1(class="section-title")= title
+  div(class="admin-panel")
+    nav
+      ul
+        li 
+          a(href="admin/news/add") Add Article
+    table
+      tr
+        th id
+        th title
+        th date
+        th action
+      each item, index in data
+        tr
+          td=index
+          td(class="title")=item.title
+          td=item.date
+          td
+            if item.basic
+              span(class="basic-article") non deletable
+            else
+              a(href=`admin/news/delete/${item._id}`) remove

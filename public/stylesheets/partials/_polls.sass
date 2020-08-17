@@ -1,0 +1,134 @@
+form.quiz
+    ul
+        margin-left: 40px
+
+        li
+            list-style: none
+
+            label
+                display: inline-block
+                font-size: 1.5rem
+                padding-left: 10px
+                padding-bottom: 2px
+    
+    p.poll-instruction
+        font-size: 1.2rem
+        color: $basic-grey
+        font-style: italic
+
+
+
+div.quiz-graphs
+    margin: 30px 0
+    display: flex
+
+    table
+        margin-left: 40px
+
+    td
+        list-style: none
+        font-size: 1.5rem
+        width: 100px
+
+        &:nth-child(2)
+            width: 50px
+
+        &:last-child
+            width: 250px
+            
+
+        div.indicator
+            background-image: linear-gradient(to right, $basic-color, #fff)
+            height: 15px
+            width: 0
+
+            font-size: 1rem
+            font-weight: 600px
+            padding-left: 5px
+            padding-top: 1px
+
+            transition: width 1s
+
+p.poll-count
+    font-size: 1.6rem
+    color: $basic-grey
+    font-style: italic
+
+    &:last-child
+        color: #000
+
+    span
+        display: block
+        padding-left: 20px
+        font-size: 1.4rem
+        color: inherit
+
+        &:first-child
+            margin-top: 10px
+
+// admin / login
+
+div.form-wrapper
+    overflow: hidden
+    position: relative
+    margin: 50px auto
+
+    border-radius: 20px
+    padding: 2px
+    max-width: $form-width + 4px
+
+    background-color: $basic-grey
+
+    &::after
+        content: ''
+        background-color: $basic-color
+        height: 100%
+        width: 0
+
+        position: absolute
+        right: 0
+        top: 0
+        z-index: 0
+
+        transition: all .5s
+    
+    &:focus-within::after
+        width: 100%
+
+
+    form.form-login
+        position: relative
+        z-index: 1
+        max-width: $form-width
+        height: 300px
+        padding: 20px
+
+        border-radius: 18px
+        background-color: #fff
+
+        div.login-message
+            width: 100%
+            min-height: 80px
+
+            p.error-screen
+                position: relative
+                height: min(78px)
+
+                border: 1px solid $basic-color
+                border-radius: 10px
+                background-color: rgba(255, 0, 0, .1)
+                color: $basic-color
+
+                display: grid
+                place-items: center
+
+                animation: 2s disappear linear forwards
+
+        input[type=submit]
+            border-color: $basic-grey
+            color: $basic-grey
+
+            &:hover
+                background-color: #fff
+                border-color: $basic-color
+                color: $basic-color

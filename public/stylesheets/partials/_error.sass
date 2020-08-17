@@ -1,0 +1,56 @@
+div.error-container
+    width: 100%
+    height: 100%
+    padding: 50px
+
+    display: grid
+    place-items: center
+
+    @include mobile
+        display: block
+
+    h4 
+        font-family: $font-lead
+        position: relative
+        font-size: 20rem
+        color: $basic-grey
+        opacity: .5
+        width: 100%
+        text-align: center
+        padding-right: 200px
+
+        @include mobile
+            font-size: 10rem
+
+            &.article
+                font-size: 5rem
+                text-align: left
+
+        p
+            position: absolute
+            bottom: 20px
+            font-size: 5rem
+            color: #333
+            text-align: center
+            width: 100%
+            padding-left: 200px
+
+            &.smaller
+                font-size: 3.4rem
+
+            @include mobile
+                font-size: 2.6rem
+                width: 100%
+                padding-left: 20px
+                bottom: 5px
+
+                &.article
+                    padding-left: 0
+                    font-size: 1rem
+                    bottom: -35px
+                    text-align: left
+
+                &.smaller
+                    font-size: 2rem
+
+

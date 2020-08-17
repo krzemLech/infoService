@@ -1,0 +1,65 @@
+div.admin-panel
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    ul
+        width: 200px
+        border-bottom: 1px solid $basic-grey
+        margin-bottom: 30px
+
+        &:hover
+            border-bottom-color: $basic-color
+            color: $basic-color
+
+        li 
+            width: 100%
+            padding-bottom: 10px
+            
+            a
+                font-size: 2.2rem
+    
+    th, td
+        font-size: 1.5rem
+        padding: 5px 10px
+
+        a
+            font-size: inherit
+            text-decoration: none
+            color: $basic-color
+
+// add-news panel
+
+div.errors
+    color: $basic-color
+    font-style: italic
+    animation: disappear 4s forwards
+
+@include mobile
+    td.title
+        overflow: auto
+        max-width: 150px
+
+
+form.news-form
+    max-width: $form-width
+    margin: 40px auto
+
+    p.area-field
+        border-bottom: 2px solid $basic-grey
+
+        &::after
+            bottom: -2px
+
+        span
+            display: block
+            font-size: 1.2rem
+            font-style: italic
+
+    textarea
+        border: none
+        outline: none
+
+        width: 100%
+        min-height: 100px
+        font-size: 1.4rem

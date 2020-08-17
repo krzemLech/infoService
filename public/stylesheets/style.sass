@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;500;600&display=swap')
+
+$font-title: 'Montserrat', sans-serif
+$font-lead: 'Fira Mono', monospace
+$font-basic: 'Hind Madurai', sans-serif
+
+$basic-color: #FF0203
+$basic-grey: #999
+
+$form-width: 500px
+
+$mobile-width: 500px
+
+@keyframes disappear
+    0%
+        opacity: 1
+    100%
+        opacity: 0 
+
+@mixin mobile
+    @media (max-width: $mobile-width)
+        @content
+
+// partial file imports
+@import 'partials/header'
+@import 'partials/welcome'
+@import 'partials/news'
+@import 'partials/polls'
+@import 'partials/admin'
+@import 'partials/error'
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-size: 10px
+    font-family: $font-basic
+    
+
+h1, h2, h3
+    font-family: $font-title
+    overflow-wrap: break-word
+
+h1
+    position: relative
+    font-weight: 900
+    font-size: 3rem
+    margin: 10px auto
+
+    @include mobile
+        padding-left: 10px
+        margin-bottom: 30px
+
+    &.section-title::after
+        content: ''
+        position: absolute
+        width: 50px
+        height: 4px
+        border-radius: 2px
+        background-color: $basic-grey
+        opacity: .5
+        bottom: -1px
+        left: 0
+
+h2
+    font-size: 2.5rem
+    font-weight: 700
+
+h3
+    font-size: 2rem
+    font-weight: 500
+
+p
+    overflow-wrap: break-word
+    font-family: $font-basic
+    font-size: 1.6rem
+    margin: 10px 0
+
+li
+    list-style: none
+
+div.body-wrapper
+    min-height: 100vh
+    max-width: 1000px
+    margin: 0 auto
+
+// general input styling
+
+p.login-input, p.news-input
+    position: relative
+
+    &::after
+        content: ''
+        background-color: $basic-color
+        height: 2px
+        width: 0
+        box-shadow: 0 1px 1px $basic-grey
+
+        position: absolute
+        z-index: 1
+        left: 0
+        bottom: 0
+
+        transition: all .5s
+
+    &:focus-within::after
+        width: 100%
+
+label
+    display: block
+    font-size: 1.4rem
+    color: $basic-grey
+
+input.text-input
+    width: 100%
+    border: none
+    border-bottom: 2px solid $basic-grey
+    outline: none
+    font-size: 1.4rem
+
+input[type=submit]
+
+    margin-top: 15px
+    font-size: 2rem
+    background-color: transparent
+    color: $basic-color
+    padding: 1px 20px
+    border: 2px solid $basic-color
+    border-radius: 10px
+    cursor: pointer
+
+    &:hover
+        border-color: white
+        color: white
+        background-color: $basic-color
+        box-shadow: 1px 1px 2px $basic-grey
+
+// useful classes
+.red
+    color: $basic-color
+    border-color: $basic-color
+
+.extended::after
+    width: 100%
+
+.hidden
+    overflow: hidden
+    opacity: 0
+
+.clearfix
+    &::after
+        content: ''
+        clear: both
+        display: inline-block

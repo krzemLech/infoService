@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  section(class="single-news--container")
+    div(class="single-news--header-wrapper")
+      div(class="single-news--image")
+        i(class="far fa-newspaper")
+      div(class="single-news--header")
+        h2= data.title
+        p(class="news-date")=data.date
+    div(class="single-news--articles")
+      if data.lead !== null
+        p(class="news-lead")=data.lead
+      each article in data.content
+        p(class="news-article")=article
+
+      
+      

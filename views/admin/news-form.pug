@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  h1(class="section-title")= title
+
+  div(class="errors")
+    if errors.errors !== undefined
+      each message in errors.errors
+        p=message
+
+  form(method="POST" class="news-form")
+    p(class="news-input")
+      label(for="title") Title
+      input(type="text" name="title" class="text-input" value=body.title || '')
+    
+    p(class="news-input")
+      label(for="lead") Lead
+      input(type="text" name="lead"  class="text-input" value=body.lead || '')
+
+    p(class="news-input area-field")
+      label(for="content") Content <span>you can divide a longer text into paragraphs using "/"</span>
+      textarea(name="content" class="text-input" )=body.content || ''
+    p
+      input(type="submit" value="Add news")

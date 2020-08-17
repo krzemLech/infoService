@@ -1,0 +1,272 @@
+$search-width: 300px
+$search-mobile: 180px
+
+.unconfirmed
+    font-size: 1.5rem
+    opacity: 1
+    transition: opacity .5s 
+
+    &.news-welcome
+        margin-top: 40px
+
+    &.opener 
+        cursor: pointer
+    
+    &.hidden
+        height: 0
+        overflow: hidden
+        opacity: 0
+
+form.search 
+    position: absolute
+    top: 37px
+    right: 20px // equally to the padding of the content section
+
+    width: $search-width
+    height: 25px
+
+    border: 1px solid $basic-grey
+    border-radius: 20px
+    overflow: hidden
+
+    &:focus-within
+        box-shadow: 0 0 2px 2px $basic-color
+    
+
+    input[type=text]
+        width: $search-width
+        height: 25px
+        background-color: #eee
+        border: none
+        text-align: center
+        font-size: 1.6rem
+        padding-bottom: 1px
+        line-height: 25px
+        color: #555
+
+        &:focus
+            outline: none
+            border: none
+    
+    @include mobile
+        width: $search-mobile
+
+        input[type=text]
+            width: $search-mobile
+
+
+    button
+        position: absolute
+        right: 2px
+        top: 0
+        width: 25px
+        line-height: 28px
+        border: none
+        background-color: transparent
+        cursor: pointer
+        outline: none
+
+        i
+            font-size: 1.6rem
+            color: #555
+
+        &:hover
+            i
+                color: $basic-color
+
+
+        
+
+div.news-container
+    display: flex
+    flex-wrap: wrap
+
+    div.news-wrapper
+        width: 48%
+        margin-top: 20px
+        border: 1px solid #aaa
+        border-radius: 10px
+        overflow: auto
+
+        display: flex
+
+        cursor: pointer
+
+
+
+        @include mobile
+            width: 92%
+            margin-left: 4%
+
+        &:nth-child(3n+1)
+            margin-left: 0
+            width: 100%
+            min-height: 200px
+
+            @include mobile
+                margin-left: 4%
+                margin-right: 4%
+
+            article
+                width: 68%
+                height: 100%
+
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                align-items: flex-start
+
+        &:nth-child(3n+2)
+            margin-right: 4%            
+
+        &::after
+            content: ''
+            height: 1px
+            width: 5px
+            background-color: $basic-color
+            transition: all .5s
+
+        &:hover
+            box-shadow: 0 1px 2px $basic-grey
+
+            &::after
+                height: 100%
+
+            .image
+                i.far
+                    color: $basic-grey
+                    opacity: .8
+
+        .image
+            flex-basis: 1
+            min-width: 33%
+            height: 100%
+
+            background-color: #ccc
+            
+            display: grid
+            place-items: center
+
+            i
+                font-size: 50px
+                color: #fff
+        
+        article
+            flex-basis: 2
+            width: 66%
+            overflow-wrap: break-word
+            padding: 10px 20px
+            min-width: calc(60% - 5px)
+
+            h3.news-title
+                a
+                    font-family: $font-basic
+                    font-size: 3rem
+                    text-decoration: none
+                    color: #000
+            
+            p.news-date
+                display: block
+                font-size: 1rem
+                font-style: italic
+                color: #555
+                text-align: left
+
+            @include mobile
+                h3.news-title
+                    a
+                        font-size: 2rem
+
+                p.news-lead
+                    font-size: 1.4rem
+
+
+// single news view
+
+.single-news
+
+    &--container
+        padding: 0 80px
+
+        @include mobile
+            padding: 0
+
+    &--header-wrapper
+        display: flex
+        justify-content: left
+        margin-bottom: 40px
+
+    &--image
+        width: 200px
+        height: 200px
+        border-radius: 50%
+
+        background-color: $basic-grey
+        box-shadow: 2px 2px 4px #555
+
+        display: grid
+        place-items: center
+
+        @include mobile
+            width: 100px
+            height: 100px
+
+        i 
+            color: #ddd
+            font-size: 4rem
+
+    &--header
+        padding-left: 20px
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        max-width: 70%
+
+        .news-date
+            color: $basic-grey
+
+    &--articles
+        p.news-article
+            text-indent: 20px
+    
+
+
+
+.news-lead
+    justify-content: left
+    margin: 0
+    font-style: italic
+    font-size: 1.8rem
+
+    @include mobile
+        &--container
+            padding: 0 10px
+
+        &--image
+            min-width: 100px
+            width: 100px
+            height: 100px
+
+// no article info
+
+p.no-articles
+
+    margin: 20px auto
+    padding-left: 100px
+    font-family: $font-lead
+
+    span:first-child
+        font-family: $font-lead
+        color: $basic-grey
+        font-size: 8rem
+        font-weight: 900
+
+    span:last-child
+        position: relative
+        left: -100px
+        font-family: $font-lead
+        color: #333
+        font-size: 2rem
+        font-weight: 900
+
+

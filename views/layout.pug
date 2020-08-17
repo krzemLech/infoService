@@ -1,0 +1,29 @@
+doctype html
+mixin item(title, url)
+  li(class="nav-item")
+    a(href=url, class=`nav-link${path == url ? " active" : ""}`)=title
+
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css')
+    script(type="text/javascript" src="/javascripts/main.js")
+  body
+  div(class="body-wrapper")
+    div(class="title-wrapper")
+      div(class="hamburger")
+        div(class="hamburger-line")
+        div(class="hamburger-line")
+        div(class="hamburger-line")
+      div(class="logo") i
+      h2(class="main-title") <span class="color-title">info</span>Service
+      nav(class="nav-bar")
+        ul(class="nav-menu")
+          +item('Welcome', '/')
+          +item('News', '/news')
+          +item('Poll', '/quiz')
+          +item('Admin', '/admin')
+    div(class="content-wrapper")
+      block content

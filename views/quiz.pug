@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1(class="section-title")= title
+  if show 
+    form(method="post" class="quiz")
+      p What kind of news do you like to read?
+      ul
+        each item in data
+          li
+            input(type="radio" name="quiz" value=item._id )
+            label=item.title
+      input(type="submit", value="vote")
+      p(class="poll-instruction") Answer the poll in order to see all answers and to get the administrative access
+  else
+    h3(class="polls") You have already voted, check the poll results below:
+    div(class="quiz-graphs")
+      table
+        each item in data
+          tr
+            td #{item.title}
+            td #{item.vote}
+            td
+              div(class="indicator" data-votes=`${item.vote}` data-sum=`${sum}`) #{Math.round(item.vote/sum*100)}%
+    p(class="poll-count") Total votes: #{sum}
+    p(class="poll-count") Credentials for administrative login are: 
+      span login: admin
+      span password: 123

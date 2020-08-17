@@ -1,0 +1,135 @@
+.title-wrapper
+    position: fixed
+    top: 0
+    padding-top: 20px
+    max-width: 1000px
+    width: 100%
+    background-color: #fff
+    height: 176px
+    box-shadow: 0 4px 4px #fff
+
+    z-index: 2
+
+    @include mobile
+        height: auto
+
+    &::after
+        content: ''
+        background-color: $basic-color
+        margin: 15px auto 0
+        width: 80%
+        height: 3px
+        display: block
+        transition: all 1s
+        box-shadow: 0 1px 3px $basic-grey
+    
+    &.extended::after
+        width: 100%
+
+    .hamburger
+        display: none
+        position: absolute
+        top: 10px
+        right: 20px
+
+        @include mobile
+            display: inline-block
+
+        &-line
+            width: 40px
+            height: 4px
+            background-color: #333
+            margin-top: 10px
+            border-radius: 3px
+
+            opacity: 1
+            transition: 1s all
+
+        &.open
+            .hamburger-line
+                &:nth-child(1)
+                    transform: translateY(14px) rotate(45deg)
+                &:nth-child(2)
+                    transform: translateX(-40px)
+                    opacity: 0
+                &:nth-child(3)
+                    transform: translateY(-14px) rotate(-45deg)
+                    
+
+    .logo
+        margin: 0 auto
+
+        text-align: center
+        font-family: Garamond
+        font-weight: bolder
+        font-size: 3rem
+        color: #fff
+        background-color: $basic-color
+
+        border: 2px solid #fff
+        border-radius: 50%
+        width: 40px
+        height: 40px
+        line-height: 36px
+        padding-bottom: 5px
+        box-shadow: 1px 1px 2px $basic-grey
+
+        transition: .5s all
+    h2
+        margin: 20px
+
+        font-weight: bolder
+        text-align: center
+        color: #181818
+        line-height: 28px
+        font-size: 2.8rem
+        text-shadow: 1px 1px 2px $basic-grey
+        transition: .2s all
+
+        span
+            position: relative
+            right: 2px
+
+            font-size: 2.2rem
+            color: $basic-color
+
+nav
+    ul
+        display: flex
+        justify-content: space-between
+        li
+            list-style: none
+            width: 25%
+            text-align: center
+            a
+                color: #181818
+                text-decoration: none
+                font-size: 2rem
+                font-family: $font-title
+
+                &:hover
+                    color: $basic-color
+
+                &.active
+                    font-weight: bold
+
+        @include mobile
+            &.nav-menu
+                height: 0
+                overflow: hidden
+                flex-direction: column
+                justify-content: space-around
+                align-items: center
+                transition: .5s all
+
+                &.open
+                    height: 500px
+
+div.content-wrapper
+    position: relative
+    margin-top: 180px
+    height: 100%
+    padding: 20px
+
+    @include mobile
+        margin-top: 150px

@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+  h1(class="news-welcome section-title")= title
+  p(class="news-welcome") Welcome to the news section. At the bottom you can find articles that were not confirmed and might be fake.
+
+  form(method="GET" class="search")
+    input(type="text" name="search")
+    button(class="search")
+      <i class="fas fa-search"></i>
+
+  div(class="news-container")
+    if data.length
+      each item in data
+        if item.confirmed 
+          div(class="news-wrapper" data-link=`news/${item._id}`)
+            div(class="image")
+              i(class="far fa-newspaper")
+            article(class="news")
+              h3(class="news-title")
+                a(href=`news/${item._id}`)=item.title
+              p(class="news-date")=item.date
+              if item.lead !== null
+                p(class="news-lead")=item.lead
+    else 
+      p(class="no-articles")
+        span No  
+        span articles to display
+
+  p(class="news-welcome unconfirmed") This section contains unconfirmed articles. If you decide to read them, you do it on your own responsibility. You also must be 18 or older to read them. 
+    span(class="unconfirmed opener red") Read the news... 
+
+  div(class="news-container unconfirmed hidden")
+    if nonConfirmed.length
+      each item in nonConfirmed
+        div(class="news-wrapper" data-link=`news/${item._id}`)
+          div(class="image")
+            i(class="far fa-newspaper")
+          article(class="news")
+            h3(class="news-title")
+              a(href=`news/${item._id}`)=item.title
+            p(class="news-date")=item.date
+            if item.lead !== null
+              p(class="news-lead")=item.lead
+    else 
+      p(class="no-articles")
+        span No  
+        span articles to display
